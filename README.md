@@ -1,4 +1,4 @@
-<img src='https://github.com/byvuejs/vue-github-actions-s3-build/raw/images/architecture.png' border='0' alt='architecture' />
+<img src='https://github.com/byvuejs/vue-github-actions-s3-deploy/raw/images/architecture.png' border='0' alt='architecture' />
 
 Implementing automatic distribution of [AWS](https://aws.amazon.com/ko/) product [S3](https://aws.amazon.com/ko/s3/) through [GitHub Actions](https://github.com/features/actions) operation.
 
@@ -22,7 +22,7 @@ This means customers of all sizes and industries can use it to store and protect
 
 ▾ Amazon S3 works
 
-<img src='https://github.com/byvuejs/vue-github-actions-s3-build/raw/images/s3-works.png' border='0' alt='s3-works' />
+<img src='https://github.com/byvuejs/vue-github-actions-s3-deploy/raw/images/s3-works.png' border='0' alt='s3-works' />
 
 ## What is GitHub Actions ?
 
@@ -45,7 +45,7 @@ Add a `*.yml` file to your source code repository to tell Github Actions.
 ▾ build.yml
 
 ```bash
-name: Vue S3 Build
+name: S3 Deploy
 on:
   push:
     branches:
@@ -53,7 +53,7 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout source code
         uses: actions/checkout@master
@@ -70,8 +70,11 @@ jobs:
       - name: Install
         run: npm install
 
+      - name: Lint
+        run: npm run lint
+
       - name: Test
-        run: npm run test
+        run: npm run test:unit
 
       - name: Build
         run: npm run build

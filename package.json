@@ -1,15 +1,15 @@
 {
-  "name": "vue-github-action-s3-build",
+  "name": "vue-github-action-s3-deploy",
   "version": "0.0.0",
   "private": true,
-  "description": "Github Actions + Vuejs + AWS S3 Build",
+  "description": "Vuejs + Github Actions + S3 Deploy",
   "author": "AGUMON <ljlm0402@gmail.com>",
   "license": "ISC",
   "keywords": [
-    "Github Actions",
-    "Vue.js",
     "TypeScript",
-    "AWS S3"
+    "Vue",
+    "Github Actions",
+    "S3"
   ],
   "scripts": {
     "serve": "vue-cli-service serve",
